@@ -1,0 +1,104 @@
+:root {
+    --chat-bg: #f8f8f8;
+    --chat-border: #ccc;
+    --chat-owner-bg: #007bff;
+    --chat-guest-bg: #e0e0e0;
+    --chat-text-color: #666;
+    --button-bg: #007bff;
+    --button-hover-bg: #0056b3;
+}
+
+/* Container Styles */
+#chat-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#chat {
+    width: 100%;
+    height: 40vh;
+    padding: 1.2%;
+    box-sizing: border-box;
+    border: 2px solid var(--chat-border);
+    border-radius: 4px;
+    background-color: var(--chat-bg);
+    font-size: 1.2em;
+    overflow-y: auto;
+    margin-bottom: 1%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat Controls */
+.chat-controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1%;
+}
+
+.chat-controls input {
+    flex: 1;
+    padding: 0.8%;
+    border: 1px solid var(--chat-border);
+    border-radius: 4px;
+    height: 4vh;
+}
+
+.chat-controls button {
+    padding: 0.8% 1.6%;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 4vh;
+    min-width: 8%;
+}
+
+.chat-controls button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Message Styles */
+.chat-message {
+    padding: 0.5% 1%;
+    border-radius: 20px;
+    margin: 0.5% 0;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+/* Owner Messages */
+.chat-message.owner {
+    align-self: flex-end !important;
+    background-color: var(--chat-owner-bg) !important;
+    color: white !important;
+    text-align: right !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+/* Guest Messages */
+.chat-message.guest {
+    align-self: flex-start !important;
+    background-color: var(--chat-guest-bg) !important;
+    color: black !important;
+    text-align: left !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+/* Status Messages */
+.status-message {
+    text-align: center;
+    font-style: italic;
+    color: var(--chat-text-color);
+    margin: 0.5% 0;
+}
+
+/* Make sure the chat container is using flex */
+#chat {
+    display: flex !important;
+    flex-direction: column !important;
+}

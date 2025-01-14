@@ -1,0 +1,26 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/landing.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+<div class="landing-container">
+    <div class="welcome-section">
+        <h1>Welcome to Project Manager</h1>
+        <p>Organize your projects with our Kanban-style board system</p>
+    </div>
+    
+    <div class="auth-options">
+        <div class="auth-card">
+            <h2>Already have an account?</h2>
+            <a href="{{ url_for('login') }}" class="auth-button">Sign In</a>
+        </div>
+        
+        <div class="auth-card">
+            <h2>New to Project Manager?</h2>
+            <a href="{{ url_for('signup') }}" class="auth-button">Sign Up</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

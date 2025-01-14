@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS lists (
+    list_id INT AUTO_INCREMENT PRIMARY KEY,
+    board_id INT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    position INT NOT NULL,
+    FOREIGN KEY (board_id) REFERENCES boards(board_id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

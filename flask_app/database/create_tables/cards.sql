@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS cards (
+    card_id INT AUTO_INCREMENT PRIMARY KEY,
+    list_id INT NOT NULL,
+    content TEXT,
+    position INT NOT NULL,
+    being_edited_by VARCHAR(100),
+    last_edited TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (list_id) REFERENCES lists(list_id) ON DELETE CASCADE,
+    FOREIGN KEY (being_edited_by) REFERENCES users(email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

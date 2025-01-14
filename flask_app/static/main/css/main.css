@@ -1,0 +1,397 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #cccccc;
+    --background-color: #1e1e1e;
+    --container-bg: #333333;
+    --container-bg-gradient: linear-gradient(145deg, #333333, #4d4d4d);
+    --text-color: #ffffff;
+    --border-color: #555555;
+    --hover-color: #ffffff;
+    --button-bg: #444444;
+    --button-hover-bg: #333333;
+    --form-bg: #333333;
+    --form-input-bg: #444444;
+    --form-border-color: #555555;
+    --submit-bg: #007bff;
+    --submit-hover-bg: #0056b3;
+    --close-bg: #666666;
+    --close-hover-bg: #444444;
+}
+
+/* General page styling */
+body {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+}
+
+/* Resume container styling */
+.resume-container {
+    background: var(--container-bg-gradient);
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 80%;
+    margin: 2% auto;
+}
+
+/* Institution, position, and experience styling */
+.institution, .position, .experience {
+    margin-bottom: 1.5%;
+}
+
+.section-divider {
+    border-top: 1px solid var(--border-color);
+    margin: 1.5% 0;
+}
+
+.institution-header, .position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.position-header h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.responsibilities {
+    font-style: italic;
+    margin: 1% 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.experience-link:hover {
+    text-decoration: underline;
+    color: var(--hover-color);
+}
+
+/* List style for experience descriptions */
+.experience-descriptions {
+    list-style-type: disc;
+    margin-left: 2%;
+}
+
+.skills-list {
+    list-style-type: circle;
+    margin-left: 2%;
+    font-style: italic;
+}
+
+/* Feedback Form Styling */
+.feedback-button {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    background-color: var(--button-bg);
+    color: var(--secondary-color);
+    padding: 0.5% 1%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.feedback-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.feedback-form-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.feedback-form {
+    background-color: var(--form-bg);
+    padding: 2%;
+    border-radius: 10px;
+    width: 30%;
+    color: var(--text-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.feedback-form h2 {
+    margin-top: 0;
+}
+
+.feedback-form label {
+    margin-top: 1%;
+    display: block;
+    color: var(--secondary-color);
+    color: #cccccc;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #555555;
+    background-color: #444444;
+    color: #ffffff;
+}
+
+.submit-button, .close-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.submit-button {
+    background-color: #007bff;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.close-button {
+    background-color: #666666;
+}
+
+.close-button:hover {
+    background-color: #444444;
+}
+
+/* Home Page Styling */
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.welcome-message {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.board-options {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.board-option-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    flex: 1;
+    max-width: 400px;
+}
+
+.action-button {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.boards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.board-link {
+    padding: 0.5rem;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+.board-link:hover {
+    background-color: #e0e0e0;
+}
+
+#memberEmails {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Landing Page Styles */
+.landing-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.welcome-section {
+    margin-bottom: 3rem;
+}
+
+.welcome-section h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.auth-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.auth-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+}
+
+.auth-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--button-bg);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: var(--button-hover-bg);
+    text-decoration: none;
+    color: white;
+}
+
+/* Auth Form Styles */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    padding: 2rem;
+}
+
+.auth-form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-form-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.alert-success {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+

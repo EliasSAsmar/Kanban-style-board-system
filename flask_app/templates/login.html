@@ -1,0 +1,28 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/landing.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+<div class="landing-container">
+    <div class="auth-card">
+        <h2>Login to Your Account</h2>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form action="{{ url_for('login') }}" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="auth-button">Login</button>
+        </form>
+        <p><a href="{{ url_for('signup') }}" class="auth-link">Don't have an account? Sign up</a></p>
+    </div>
+</div>
+{% endblock %}

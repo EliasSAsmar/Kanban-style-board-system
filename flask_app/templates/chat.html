@@ -1,0 +1,31 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/chat.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+<div id="chat-container">
+    <div id="user" style="display: none;">{{ user }}</div>
+
+    <div id="chat" class="chat-messages">
+        <!-- Messages will be appended here -->
+    </div>
+
+    <!-- Input field and buttons -->
+    <div class="chat-controls">
+        <input id="message-input" type="text" placeholder="Enter your message here" title="Type your message" />
+        <button id="send-button">Send</button>
+        <button id="leave-button">Leave Chat</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<!-- Include Socket.IO client script from CDN -->
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include your custom chat.js script -->
+<script src="{{ url_for('static', filename='main/js/chat.js') }}"></script>
+{% endblock %}

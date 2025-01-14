@@ -1,0 +1,80 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/board_view.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script src="{{ url_for('static', filename='main/js/board_view.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="board-container">
+    <div class="board-header">
+        <h1>{{ board.name }}</h1>
+        <div class="board-actions">
+            <!-- Removed the Invite Members button -->
+        </div>
+    </div>
+    
+    <div class="lists-container">
+        {% for list in lists %}
+        <div class="list" data-list-id="{{ list.list_id }}">
+            <h2>
+                {{ list.name }}
+                <button class="add-card-button" title="Add card">+</button>
+            </h2>
+            <div class="cards-container">
+                {% for card in list.cards %}
+                <div class="card" data-card-id="{{ card.card_id }}">
+                    <div class="card-content">{{ card.content }}</div>
+                    <div class="card-actions">
+                        <button class="edit-card-button" title="Edit card">✎</button>
+                        <button class="delete-card-button" title="Delete card">×</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Add Card Modal -->
+    <div id="addCardModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Add New Card</h2>
+            <form id="addCardForm">
+                <input type="hidden" id="listId" name="listId">
+                <div class="form-group">
+                    <label for="cardContent">Card Content:</label>
+                    <textarea id="cardContent" name="cardContent" required></textarea>
+                </div>
+                <button type="submit" class="action-button">Add Card</button>
+            </form>
+        </div>
+    </div>
+
+   
+
+    <input type="hidden" id="user-email" value="{{ session['email_decrypted'] if 'email_decrypted' in session else session['email'] }}">
+
+    <div id="chat-container">
+        <div class="chat-header">
+            <h3>Board Chat</h3>
+            <button class="toggle-chat">□</button>
+        </div>
+        <div class="chat-content">
+            <div id="chat">
+                <!-- Messages will be appended here -->
+            </div>
+            <div class="chat-controls">
+                <input id="message-input" type="text" placeholder="Type a message..." />
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

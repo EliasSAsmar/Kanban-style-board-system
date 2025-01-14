@@ -1,0 +1,19 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<div class="feedback-container">
+    <h2>User Feedback</h2>
+    {% if feedback %}
+        <ul>
+            {% for entry in feedback %}
+                <li>
+                    <strong>{{ entry['name'] }} ({{ entry['email'] }})</strong>
+                    <p>{{ entry['comment'] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No feedback submitted yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

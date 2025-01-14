@@ -1,0 +1,64 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/board.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ url_for('static', filename='main/js/board.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="home-container">
+    <div class="welcome-message">
+        <h1>Welcome, {{ user_email }}</h1>
+        <p>What would you like to do?</p>
+    </div>
+
+    <div class="board-options">
+        <!-- Create New Board Option -->
+        <div class="board-option-card">
+            <h2>Create New Board</h2>
+            <p>Start a new project board and invite team members</p>
+            <button class="action-button" onclick="showCreateBoardModal()">Create Board</button>
+        </div>
+
+        <!-- Open Existing Board Option -->
+        <div class="board-option-card">
+            <h2>Open Existing Board</h2>
+            {% if boards %}
+                <div class="boards-list">
+                    {% for board in boards %}
+                    <a href="{{ url_for('view_board', board_id=board.board_id) }}" class="board-link">
+                        {{ board.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>You don't have any boards yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Create Board Modal -->
+    <div id="createBoardModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Create New Board</h2>
+            <form id="createBoardForm" action="{{ url_for('create_board') }}" method="POST">
+                <div class="form-group">
+                    <label for="projectName">Project Name:</label>
+                    <input type="text" id="projectName" name="projectName" required>
+                </div>
+                <div class="form-group">
+                    <label for="memberEmails">Member Emails:</label>
+                    <textarea id="memberEmails" name="memberEmails" 
+                              placeholder="Enter email addresses (one per line)" required></textarea>
+                    <small class="help-text">Enter one email address per line</small>
+                </div>
+                <button type="submit" class="action-button">Create Board</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
