@@ -38,8 +38,8 @@ I received a 95% on this project.
 
 1. **Clone the Repository**
    ```bash
-   git clone [your-repository-url]
-   cd [repository-name]
+   git clone https://github.com/EliasSAsmar/Kanban-style-board-system.git
+   cd Kanban-style-board-system
    ```
 
 2. **Docker Setup**
